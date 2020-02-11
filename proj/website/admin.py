@@ -11,7 +11,7 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'subtitle']
     #fields = ('title', 'subtitle')
 
-    def get_queryset(self, request):
-        return Post.objects.filter(deleted=False)
+    # def get_queryset(self, request):
+    #     return Post.objects.filter(deleted=False)
 
 admin.site.register(Post, PostAdmin)

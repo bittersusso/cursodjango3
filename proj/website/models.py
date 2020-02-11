@@ -17,12 +17,16 @@ class Post(models.Model):
         default=Categorias.GR,
     )
     deleted = models.BooleanField(default=True)
+    imagem = models.ImageField(upload_to='posts', null=True, blank=True)
 
     def __str__(self):
         return self.title
 
     def full_name(self):
-        return self.title + self.subtitle
+        return self.title + ' --- ' + self.subtitle
+    
+    def get_category_label(self):
+        return self.get_categories_display()
 
     full_name.admin_order_field = 'title'
     
